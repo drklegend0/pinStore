@@ -1,0 +1,13 @@
+{
+    "apps": [
+        {
+            "name": "thiker",
+            "LatestUpdate": "0.1-alpha",
+            "vers": [
+                "0.1-alpha"
+            ],
+            "description": "Thiker is a productivity app for tracking your thoughts.",
+            "image": "images/thiker.png"
+        }
+    ]
+}
