@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="download-container">
+        <img id="app-icon" src="" alt="App Icon">
+        <h2 id="app-name"></h2>
+        <div id="versions"></div>
+        <button id="download-button" disabled>Download</button>
+    </div>
+
+    <script>
+        // Parse URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const appName = params.get('app');
+
+        // Fetch app data from appmanager.json
+        fetch('apps/appmanager.json')
+            .then(response => response.json())
+            .then(data => {
+                const app = data.apps.find(app => app.name === appName);
+
+                if (app) {
+                    // Update the download page with app details
+                    document.getElementById('app-name').textContent = app.name;
+                    document.getElementById('app-icon').src = `images/${app.name.toLowerCase()}.png`;
+
+                    // Populate version list
+                    const versionsDiv = document.getElementById('versions');
+                    app.vers.forEach(version => {
+                        const versionOption = document.createElement('button');
+                        versionOption.textContent = version;
+                        versionOption.className = 'version-option';
+                        versionsDiv.appendChild(versionOption);
+
+                        // Activate download button on version selection
+                        versionOption.addEventListener('click', () => {
+                            document.getElementById('download-button').disabled = false;
+                            document.getElementById('download-button').onclick = () => {
+                                window.location.href = `apps/${app.name.toLowerCase()}-${version}.apk`;
+                            };
+                        });
+                    });
+                } else {
+                    document.body.textContent = 'App not found!';
+                }
+            })
+            .catch(error => console.error('Error loading app details:', error));
+    </script>
+</body>
+</html>
