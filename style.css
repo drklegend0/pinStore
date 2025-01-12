@@ -1,5 +1,6 @@
 /* General Styles */
 body {
+    user-select: none;
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -30,27 +31,38 @@ h1, h2 {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 280px;
+    width: 200px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .app-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.432);
 }
 
 .app-card img {
-    width: 120px; /* Set a fixed size for the icons */
-    height: 120px; /* Make it square */
+    width: 100px; /* Set a fixed size for the icons */
+    height: 100px; /* Make it square */
     object-fit: cover; /* Ensure the image scales well */
-    border-radius: 50%; /* Make the icon round */
+    border-radius: 100%; /* Make the icon round */
     margin-top: 20px;
+    transition: 0.3s;
+}
+
+.app-card img:hover{
+    width: 150px;
+    height: 150px;
 }
 
 .app-card h3 {
     font-size: 1.5rem;
     margin: 10px 0;
+    transition: 0.3s;
+}
+
+.app-card h3:hover{
+    font-size: 3rem;
 }
 
 .download-button {
@@ -69,6 +81,7 @@ h1, h2 {
 
 .download-button:hover {
     background-color: #0056b3;
+    
 }
 
 /* Download Page */
@@ -100,17 +113,20 @@ h1, h2 {
 
 .version-option {
     background-color: #17a2b8;
+    box-shadow: 0px 0px 0px black;
     color: #fff;
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    transition:0.3s;
 }
 
 .version-option:hover {
-    background-color: #117a8b;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.432);
+    transform: translateY(-5px);
+    
 }
 
 #download-button {
@@ -144,4 +160,19 @@ h1, h2 {
     .app-card {
         width: 90%;
     }
+}
+
+#base{
+    background-color: rgb(229, 229, 229);
+    height: 600px;
+}
+
+#title{
+
+
+    transition: 0.3s;
+}
+
+#title:hover{
+    transform: translateY(-5px);
 }
