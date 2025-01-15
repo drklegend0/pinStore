@@ -71,7 +71,7 @@ h1, h2 {
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 10px 15px;
+    padding: 1px 12px;
     text-decoration: none;
     font-size: 1rem;
     margin: 15px 0;
@@ -96,6 +96,14 @@ h1, h2 {
     height: 120px; /* Make it square */
     border-radius: 50%; /* Make the icon round */
     margin-bottom: 20px;
+    transition: 0.3s;
+    
+}
+
+#app-icon:hover{
+    transform: translateY(-5px);
+    width: 150px; 
+    height: 150px;
 }
 
 #app-name {
@@ -175,4 +183,23 @@ h1, h2 {
 
 #title:hover{
     transform: translateY(-5px);
+}
+
+
+
+#category{
+    width: 50px;
+    height: 50px;
+}
+#category:hover{
+    width: 75px;
+    height: 75px;
+    background-color: #aaaaaa;
+}
+
+
+
+#download-icon{
+    width: 42px;
+    height: 42px;
 }
