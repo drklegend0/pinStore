@@ -33,8 +33,16 @@ h1, h2 {
     overflow: hidden;
     width: 200px;
     text-align: center;
+    animation-name: shows;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation-duration: 1s;
 }
+
+@keyframes shows {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
 
 .app-card:hover {
     transform: translateY(-5px);
@@ -177,29 +185,190 @@ h1, h2 {
 
 #title{
 
-
+    transform: translateY(-30px);
     transition: 0.3s;
 }
 
 #title:hover{
-    transform: translateY(-5px);
+    transform: translateY(-35px);
 }
 
 
 
 #category{
+    border-radius: 100%;
+    box-shadow: 0 0 0;
+    text-align: center;
+    color: white;
+    transition: 0.3s;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    transform: translateY(5px);
+}
+
+#category h5{
+    margin-top: -5px;
+}
+
+#category:hover{
+    color: black;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.432);
+    transform: translateY(-5px);
+}
+
+#category img{
     width: 50px;
     height: 50px;
 }
-#category:hover{
-    width: 75px;
-    height: 75px;
-    background-color: #aaaaaa;
-}
+
 
 
 
 #download-icon{
     width: 42px;
     height: 42px;
+}
+
+
+
+#docs{
+    width: 45px;
+    height: 45px;
+    margin: 10px 10px;
+    border-radius: 100%;
+    transition: 0.3s;
+    display: block;
+    
+    
+}
+
+#docs img{
+    margin-top: 6px;
+    width: 30px;
+}
+
+#docs:hover{
+    background-color: #b7b7b7;
+    
+}
+
+#docs:active{
+    background-color: #7a7a7a;
+}
+
+
+/*README*/
+
+#README{
+    background-color: #303439;
+    user-select: auto;
+}
+
+#README zero-md{
+    margin-left: 4%;
+    margin-top: 2%;
+    border-radius: 1%;
+    width: 90%;
+    background-color: #c8d0e0;
+    user-select: auto;
+    
+    padding: 20px;
+
+    animation-name: intro;
+    animation-duration: 1s;
+}
+
+
+@keyframes intro {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+/* FeedBack Window */
+#feeds{
+    display: flex;
+    justify-content: center; /* Center FeedbackWin horizontally */
+    align-items: center; /* Center items vertically */
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Allows positioning of the h4 */
+}
+#FeedbackWin {
+    margin-left: 0px;
+    margin-top: 25px;
+    width: 400px;
+    height: 500px;
+    padding: 20px 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.432);
+    display: flex; /* Use flexbox for layout */
+    align-items: self-start; /* Align items vertically */
+    gap: 10px; /* Add space between elements */
+}
+
+#FeedbackWin h1 {
+    margin-bottom: 10px;
+    text-align: left; 
+    margin-left: 25px;
+    width: auto; /* Let the width adjust to the content */
+    
+    margin: 0; /* Remove default margin */
+}
+
+#FeedbackWin img {
+    
+    width: 35px; /* Adjust the size of the image as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px; /* Remove unnecessary margins */
+}
+
+#BeforeWin {
+
+    margin-top: 25px;
+    position: absolute; /* Position h4 independently */
+    left: 20px; /* Adjust distance from the right edge */
+    top: 52%; /* Vertical centering */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+    margin: 0;
+    width: 395px;
+    height: 500px;
+    padding: 20px 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.432);
+    display: flex; /* Use flexbox for layout */
+    align-items: self-start; /* Align items vertically */
+    gap: 10px; /* Add space between elements */
+}
+
+#BeforeWin img {
+    transform: rotate(45deg); 
+    width: 35px; /* Adjust the size of the image as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 30px; /* Remove unnecessary margins */
+}
+
+#SendWin {
+
+    margin-top: 25px;
+    position: absolute; /* Position h4 independently */
+    right: 20px; /* Adjust distance from the right edge */
+    top: 52%; /* Vertical centering */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+    margin: 0;
+    width: 395px;
+    height: 500px;
+    padding: 20px 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.432);
+    display: flex; /* Use flexbox for layout */
+    align-items: self-start; /* Align items vertically */
+    gap: 10px; /* Add space between elements */
+}
+
+#SendWin img {
+    width: 35px; /* Adjust the size of the image as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 30px; /* Remove unnecessary margins */
 }
