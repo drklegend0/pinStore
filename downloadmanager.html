@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download App</title>
+    <title>title</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
         // Parse URL parameters
         const params = new URLSearchParams(window.location.search);
         const appName = params.get('app');
-
+        
         // Fetch app data from appmanager.json
         fetch('apps/appmanager.json')
             .then(response => response.json())
@@ -29,7 +29,7 @@
                     // Update the download page with app details
                     document.getElementById('app-name').textContent = app.name;
                     document.getElementById('app-icon').src = `images/${app.name.toLowerCase()}.png`;
-
+                    document.title = "Download " + app.name
                     // Populate version list
                     const versionsDiv = document.getElementById('versions');
                     app.vers.forEach(version => {
@@ -42,7 +42,7 @@
                         versionOption.addEventListener('click', () => {
                             document.getElementById('download-button').disabled = false;
                             document.getElementById('download-button').onclick = () => {
-                                window.location.href = `apps/${app.name.toLowerCase()}-${version}.apk`;
+                                window.location.href = `apps/${app.name.toLowerCase()}-${version}`;
                             };
                         });
                     });
