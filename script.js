@@ -15,11 +15,16 @@ fetch('apps/appmanager.json')
             // Add app icon
             const img = document.createElement('img');
             const icon = document.createElement('img');
+            const category = document.createElement("div");
+            const categoryName = document.createElement("h5");
 
-            icon.id = "category"
+            categoryName.innerText = app.icon;
+
+            category.id = "category"
             icon.src = `images/icons/${app.icon}.svg`;
             icon.alt = "category Icon";
             
+
             
             img.src = `images/${app.name.toLowerCase()}.png`;
             img.alt = `${app.name} Logo`;
@@ -36,14 +41,16 @@ fetch('apps/appmanager.json')
 
             // Add download link
             const downloadLink = document.createElement('a');
-            downloadLink.href = `downloadpage.html?app=${encodeURIComponent(app.name)}`;
+            downloadLink.href = `downloadmanager.html?app=${encodeURIComponent(app.name)}`;
             downloadLink.append(downloadIcon);
             downloadLink.className = 'download-button';
 
             // Append elements to card
             card.appendChild(img);
             card.append(document.createElement("br"));
-            card.appendChild(icon);
+            category.appendChild(icon);
+            category.appendChild(categoryName);
+            card.appendChild(category);
             card.appendChild(name);
             card.appendChild(downloadLink);
 
