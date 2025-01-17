@@ -42,7 +42,7 @@
                     // Update the download page with app details
                     document.getElementById('app-name').textContent = app.name;
                     document.getElementById("description").textContent = app.description;
-                    document.getElementById('app-icon').src = `images/${app.name}.png`;
+                    document.getElementById('app-icon').src = `images/${app.name.toLowerCase()}.png`;
                     document.title = "Download " + app.name;
     
                     // Set up the LatestUpdate button
