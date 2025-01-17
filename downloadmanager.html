@@ -7,10 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    
     <div id="download-container">
         <img id="app-icon" src="" alt="App Icon">
         <h2 id="app-name"></h2>
-        <div id="versions"></div>
+        <div class="card">
+            <h2>description</h2>
+            <h3 id="description"></h3>
+        </div>
+        <div class="card">
+            <h2>LatestUpdate</h2>
+            <button id="LatestUpdate" class="version-option"></button>
+        </div>
+            <div class="card">
+            <h2>versions</h2>
+            <div id="versions"></div>
+        </div>
+
         <button id="download-button" disabled><img src="images/icons/download.svg" id="download-icon" alt=""></button>
     </div>
 
@@ -24,12 +37,21 @@
             .then(response => response.json())
             .then(data => {
                 const app = data.apps.find(app => app.name === appName);
-
+    
                 if (app) {
                     // Update the download page with app details
                     document.getElementById('app-name').textContent = app.name;
-                    document.getElementById('app-icon').src = `images/${app.name.toLowerCase()}.png`;
-                    document.title = "Download " + app.name
+                    document.getElementById("description").textContent = app.description;
+                    document.getElementById('app-icon').src = `images/${app.name}.png`;
+                    document.title = "Download " + app.name;
+    
+                    // Set up the LatestUpdate button
+                    const latestUpdateButton = document.getElementById("LatestUpdate");
+                    latestUpdateButton.textContent = app.LatestUpdate;
+                    latestUpdateButton.onclick = () => {
+                        window.location.href = `apps/${app.name.toLowerCase()}-${app.LatestUpdate}.${app.extension}`;
+                    };
+    
                     // Populate version list
                     const versionsDiv = document.getElementById('versions');
                     app.vers.forEach(version => {
@@ -37,20 +59,23 @@
                         versionOption.textContent = version;
                         versionOption.className = 'version-option';
                         versionsDiv.appendChild(versionOption);
-
+    
                         // Activate download button on version selection
                         versionOption.addEventListener('click', () => {
                             document.getElementById('download-button').disabled = false;
                             document.getElementById('download-button').onclick = () => {
-                                window.location.href = `apps/${app.name.toLowerCase()}-${version}`;
+                                window.location.href = `apps/${app.name.toLowerCase()}-${version}.${app.extension}`;
                             };
                         });
                     });
+                    
                 } else {
                     document.body.textContent = 'App not found!';
                 }
             })
             .catch(error => console.error('Error loading app details:', error));
     </script>
+    
+    
 </body>
 </html>
