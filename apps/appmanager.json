@@ -1,13 +1,14 @@
 {
     "apps": [
         {
-            "name": "thiker",
+            "name": "Thiker",
             "LatestUpdate": "0.1-alpha",
             "vers": [
                 "0.1-alpha"
             ],
-            "description": "Thiker is a productivity app for tracking your thoughts.",
-            "icon":"selfCare"
+            "description": "Thiker",
+            "category":"selfCare",
+            "extension":"apk"
         }
     ]
 }
