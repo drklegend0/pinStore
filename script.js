@@ -18,10 +18,10 @@ fetch('apps/appmanager.json')
             const category = document.createElement("div");
             const categoryName = document.createElement("h5");
 
-            categoryName.innerText = app.icon;
+            categoryName.innerText = app.category;
 
             category.id = "category"
-            icon.src = `images/icons/${app.icon}.svg`;
+            icon.src = `images/icons/${app.category}.svg`;
             icon.alt = "category Icon";
             
 
