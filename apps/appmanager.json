@@ -2,9 +2,10 @@
     "apps": [
         {
             "name": "Thiker",
-            "LatestUpdate": "0.1-alpha",
+            "LatestUpdate": "0.2-alpha",
             "vers": [
-                "0.1-alpha"
+                "0.1-alpha",
+                "0.2-alpha"
             ],
             "description": "Thiker",
             "category":"selfCare",
